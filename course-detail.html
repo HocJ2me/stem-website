@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chi tiết Khóa học – BKSteam</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ---- Course Detail Page Specific Styles ---- */
+.course-hero{padding:60px 0 40px;background:var(--bg-gray)}
+.course-hero-inner{display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:start}
+.course-meta-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.course-title{font-size:2rem;font-weight:800;color:var(--text-dark);line-height:1.25;margin-bottom:16px}
+.course-desc{color:var(--text-muted);font-size:1rem;line-height:1.7;margin-bottom:24px}
+.course-stats{display:flex;gap:24px;flex-wrap:wrap}
+.course-stat{display:flex;align-items:center;gap:6px;font-size:.875rem;color:var(--text-muted);font-weight:500}
+.course-sidebar{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:sticky;top:80px}
+.course-sidebar-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:5rem}
+.course-sidebar-body{padding:24px}
+.sidebar-cta-note{font-size:.8rem;color:var(--text-muted);text-align:center;margin-top:10px}
+.outcomes-list{list-style:none;padding:0;margin:0}
+.outcomes-list li{padding:8px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;font-size:.9rem;color:var(--text-muted)}
+.outcomes-list li:last-child{border-bottom:none}
+.outcomes-list li::before{content:"✓";color:#10B981;font-weight:700;flex-shrink:0}
+/* Curriculum */
+.curriculum-section{padding:48px 0}
+.module-block{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px;overflow:hidden}
+.module-header{background:var(--bg-gray);padding:16px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
+.module-header:hover{background:#E5E7EB}
+.module-header h3{font-size:1rem;font-weight:700;color:var(--text-dark);margin:0;flex:1}
+.module-count{font-size:.8rem;color:var(--text-muted);font-weight:500}
+.module-toggle{font-size:1rem;color:var(--text-muted);transition:transform .2s}
+.module-toggle.open{transform:rotate(180deg)}
+.lesson-list{display:none}
+.lesson-list.open{display:block}
+.lesson-item{padding:14px 20px;border-top:1px solid var(--border);display:flex;align-items:center;gap:12px}
+.lesson-item:hover{background:var(--bg-gray)}
+.lesson-num{width:28px;height:28px;border-radius:50%;background:var(--bg-gray);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--text-muted);flex-shrink:0}
+.lesson-item.free-lesson .lesson-num{background:#D1FAE5;color:#065F46}
+.lesson-info{flex:1}
+.lesson-title{font-size:.9rem;font-weight:600;color:var(--text-dark)}
+.lesson-meta{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+.lesson-badge{font-size:.7rem;padding:2px 8px;border-radius:20px;font-weight:700;flex-shrink:0}
+.lesson-badge.free{background:#D1FAE5;color:#065F46}
+.lesson-badge.locked{background:#F3F4F6;color:#9CA3AF}
+.btn-preview{font-size:.75rem;padding:5px 12px;border-radius:6px;background:var(--primary);color:#fff;border:none;cursor:pointer;flex-shrink:0;text-decoration:none}
+/* Lesson Content Modal */
+.lesson-preview{background:#FFFBEB;border:2px solid #FCD34D;border-radius:var(--radius);margin:0 20px 20px;padding:20px;display:none}
+.lesson-preview.active{display:block}
+.lesson-preview h4{color:var(--text-dark);font-size:1rem;margin-bottom:10px}
+.lesson-preview .intro{color:var(--text-muted);font-size:.875rem;line-height:1.6;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #FCD34D}
+.steps-list{display:flex;flex-direction:column;gap:12px}
+.step-item{display:flex;gap:12px}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;margin-top:2px}
+.step-content h5{font-size:.875rem;font-weight:700;color:var(--text-dark);margin:0 0 4px}
+.step-content p{font-size:.825rem;color:var(--text-muted);margin:0;line-height:1.5}
+.lesson-tip{background:#EFF6FF;border-left:3px solid #3B82F6;padding:10px 14px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:.825rem;color:#1E40AF;margin-top:14px;line-height:1.5}
+/* Locked overlay */
+.locked-msg{background:var(--bg-gray);border:1px dashed var(--border);border-radius:var(--radius-sm);padding:24px;text-align:center;margin:0 20px 20px}
+.locked-msg .lock-icon{font-size:2rem;margin-bottom:8px}
+.locked-msg p{font-size:.875rem;color:var(--text-muted);margin-bottom:14px}
+/* Related courses */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){
+  .course-hero-inner{grid-template-columns:1fr}
+  .course-sidebar{position:static}
+  .related-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .related-grid{grid-template-columns:1fr}
+  .course-title{font-size:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-icon">B</div>BK<span>Steam</span></a>
+    <div class="nav-links">
+      <a href="curriculum.html" class="active">Chương trình học</a>
+      <a href="teacher-training.html">Đào tạo GV</a>
+      <a href="explore.html">Khám phá</a>
+      <a href="pricing.html">Bảng giá</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Liên hệ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-outline btn-sm">Dùng thử miễn phí</a>
+      <a href="login.html" class="btn btn-primary btn-sm">Đăng nhập</a>
+    </div>
+    <button class="nav-hamburger"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile">
+    <a href="curriculum.html">Chương trình học</a>
+    <a href="teacher-training.html">Đào tạo Giáo viên</a>
+    <a href="explore.html">Khám phá</a>
+    <a href="pricing.html">Bảng giá</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Liên hệ</a>
+    <a href="contact.html" class="btn btn-primary">Dùng thử miễn phí</a>
+  </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div style="background:#fff;border-bottom:1px solid var(--border);padding:12px 0">
+  <div class="container" style="font-size:.85rem;color:var(--text-muted)">
+    <a href="index.html" style="color:var(--text-muted)">Trang chủ</a> /
+    <a href="curriculum.html" style="color:var(--text-muted)">Chương trình học</a> /
+    <span id="breadcrumb-title" style="color:var(--text-dark);font-weight:600">Khóa học</span>
+  </div>
+</div>
+
+<!-- Course Hero -->
+<section class="course-hero">
+  <div class="container">
+    <div class="course-hero-inner">
+      <div>
+        <div class="course-meta-badges" id="course-badges"></div>
+        <h1 class="course-title" id="course-title">Đang tải...</h1>
+        <p class="course-desc" id="course-desc"></p>
+        <div class="course-stats" id="course-stats"></div>
+      </div>
+      <div class="course-sidebar">
+        <div class="course-sidebar-img" id="sidebar-img" style="font-size:5rem">📚</div>
+        <div class="course-sidebar-body">
+          <div style="font-size:1.4rem;font-weight:800;color:var(--text-dark);margin-bottom:4px">Xem trước miễn phí</div>
+          <div style="font-size:.85rem;color:var(--text-muted);margin-bottom:20px">2–3 bài đầu không cần đăng ký</div>
+          <a href="login.html" class="btn btn-primary w-full" style="justify-content:center;padding:14px;font-size:1rem">Đăng ký để xem tất cả →</a>
+          <p class="sidebar-cta-note">Dùng thử miễn phí 14 ngày · Không cần thẻ tín dụng</p>
+          <div style="border-top:1px solid var(--border);margin:16px 0;padding-top:16px">
+            <div style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin-bottom:8px">Khóa học bao gồm:</div>
+            <div id="sidebar-includes"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Outcomes -->
+<section class="section" style="padding:48px 0">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <div>
+        <div class="label">Sau khóa học này</div>
+        <h2 style="margin-bottom:24px">Bạn sẽ học được gì?</h2>
+        <ul class="outcomes-list" id="outcomes-list"></ul>
+      </div>
+      <div>
+        <div class="label">Yêu cầu đầu vào</div>
+        <h2 style="margin-bottom:24px">Ai phù hợp?</h2>
+        <div id="prerequisites" style="color:var(--text-muted);font-size:.9rem;line-height:1.7"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Curriculum -->
+<section class="curriculum-section" style="background:var(--bg-gray)">
+  <div class="container">
+    <div class="section-header" style="text-align:left;margin-bottom:32px">
+      <div class="label">Nội dung bài giảng</div>
+      <h2>Chương trình chi tiết <span id="sessions-count" style="font-size:1rem;font-weight:500;color:var(--text-muted)"></span></h2>
+      <p style="color:var(--text-muted)">🔓 Các bài được đánh dấu <span class="lesson-badge free">Xem miễn phí</span> bạn có thể xem ngay không cần đăng nhập.</p>
+    </div>
+    <div id="curriculum-list"></div>
+
+    <!-- Locked CTA -->
+    <div style="background:#fff;border:2px solid var(--primary);border-radius:var(--radius);padding:32px;text-align:center;margin-top:32px">
+      <div style="font-size:2.5rem;margin-bottom:12px">🔓</div>
+      <h3 style="color:var(--text-dark);margin-bottom:8px">Mở khóa toàn bộ nội dung</h3>
+      <p style="color:var(--text-muted);max-width:480px;margin:0 auto 20px">Đăng ký tài khoản để xem tất cả bài giảng, bài tập, video hướng dẫn và nhận chứng chỉ hoàn thành.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="login.html" class="btn btn-primary">Đăng ký miễn phí 14 ngày →</a>
+        <a href="contact.html" class="btn btn-outline">Liên hệ tư vấn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Related Courses -->
+<section class="section">
+  <div class="container">
+    <div class="section-header" style="text-align:left;margin-bottom:32px">
+      <div class="label">Tiếp theo</div>
+      <h2>Khóa học liên quan</h2>
+    </div>
+    <div class="related-grid" id="related-courses"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo" style="color:#fff"><div class="nav-logo-icon">B</div>BK<span>Steam</span></a><p>Nền tảng học tập và quản lý STEM toàn diện dành cho học sinh và giáo viên Việt Nam.</p></div>
+      <div class="footer-col"><h4>VỀ CHÚNG TÔI</h4><ul><li><a href="index.html">Trang chủ</a></li><li><a href="gioi-thieu.html">Giới thiệu</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>GIẢI PHÁP</h4><ul><li><a href="curriculum.html">Chương trình học</a></li><li><a href="teacher-training.html">Đào tạo GV</a></li><li><a href="explore.html">Khám phá</a></li><li><a href="pricing.html">Bảng giá</a></li></ul></div>
+      <div class="footer-col"><h4>PHÁP LÝ</h4><ul><li><a href="privacy.html">Chính sách bảo mật</a></li><li><a href="terms.html">Điều khoản sử dụng</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 BKSteam – Quản lý: Thầy Lê Chí Tuyền. Mọi quyền được bảo lưu.</p><p>📧 info@bkstar.edu.vn &nbsp;|&nbsp; 📞 (+84) 836 717 666</p></div>
+  </div>
+</footer>
+
+<script src="js/courses-data.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const courseId = params.get('id');
+  const course = courseId ? getCourse(courseId) : null;
+
+  if (!course) {
+    document.querySelector('.course-hero').innerHTML = '<div class="container" style="padding:80px 0;text-align:center"><h2>Khóa học không tồn tại</h2><p>Vui lòng <a href="curriculum.html">quay lại danh sách khóa học</a>.</p></div>';
+    return;
+  }
+
+  document.title = course.title + ' – BKSteam';
+  document.getElementById('breadcrumb-title').textContent = course.title;
+
+  // Badges
+  const badgesEl = document.getElementById('course-badges');
+  const levelColor = course.level === 'Dễ' ? 'badge-easy' : course.level === 'Trung bình' ? 'badge-medium' : 'badge-hard';
+  badgesEl.innerHTML = `
+    <span class="badge badge-primary">${course.subject === 'lap-trinh' ? '💻 Lập trình' : course.subject === 'robotics' ? '🤖 Robotics' : course.subject === 'ai-iot' ? '🌐 AI & IoT' : course.subject === 'thiet-ke-3d' ? '🎨 Thiết kế 3D' : '🔬 Khoa học'}</span>
+    <span class="badge ${levelColor}">${course.level}</span>
+    <span class="badge badge-gray">📚 ${course.grade}</span>
+  `;
+
+  document.getElementById('course-title').textContent = course.title;
+  document.getElementById('course-desc').textContent = course.description;
+
+  // Stats
+  const stats = [
+    {icon:'⏱', text: course.sessions + ' tiết học'},
+    {icon:'🔧', text: course.tool},
+    {icon:'👦', text: course.grade},
+    {icon:'📊', text: 'Độ khó: ' + course.level},
+  ];
+  document.getElementById('course-stats').innerHTML = stats.map(s =>
+    `<div class="course-stat"><span>${s.icon}</span><span>${s.text}</span></div>`
+  ).join('');
+
+  // Sidebar img
+  const imgEl = document.getElementById('sidebar-img');
+  imgEl.innerHTML = `<img src="${course.img}" alt="${course.title}" style="width:100%;height:200px;object-fit:cover">`;
+
+  // Sidebar includes
+  document.getElementById('sidebar-includes').innerHTML = [
+    '✅ ' + course.sessions + ' bài giảng chi tiết',
+    '✅ Giáo án + Slide bài dạy',
+    '✅ Video hướng dẫn từng bước',
+    '✅ Bài tập thực hành tương tác',
+    '✅ Chứng chỉ hoàn thành',
+    '✅ Hỗ trợ kỹ thuật 24/7',
+  ].map(i => `<div style="font-size:.8rem;color:var(--text-muted);padding:3px 0">${i}</div>`).join('');
+
+  // Outcomes
+  document.getElementById('outcomes-list').innerHTML = course.outcomes
+    .map(o => `<li>${o}</li>`).join('');
+
+  // Prerequisites
+  const prereqMap = {
+    'lap-trinh': 'Không yêu cầu kiến thức trước. Học sinh biết sử dụng máy tính/máy tính bảng là đủ.',
+    'robotics': 'Học sinh đã học Lập trình Scratch hoặc Robot Rio cơ bản (ưu tiên). Không bắt buộc.',
+    'ai-iot': 'Học sinh đã có kiến thức lập trình block-code cơ bản. Giáo viên hướng dẫn tận nơi.',
+    'thiet-ke-3d': 'Không yêu cầu. Chỉ cần máy tính có trình duyệt Chrome/Firefox và kết nối internet.',
+    'khoa-hoc': 'Không yêu cầu kiến thức đặc biệt. Phù hợp với mọi học sinh yêu thích khám phá khoa học.',
+  };
+  document.getElementById('prerequisites').innerHTML = `
+    <p>${prereqMap[course.subject] || 'Không yêu cầu kiến thức đặc biệt.'}</p>
+    <p style="margin-top:12px"><strong>Thiết bị cần có:</strong><br>
+    ${course.tool.includes('Tablet') ? 'Máy tính bảng (iPad hoặc Android tablet)' : 'Máy tính hoặc laptop có kết nối internet'}. ${course.tool.includes('Kit') || course.tool.includes('Arduino') ? '<br>Bộ Kit phần cứng (nhà trường/trung tâm cung cấp).' : ''}
+    </p>
+  `;
+
+  // Sessions count
+  const totalLessons = course.modules.reduce((sum, m) => sum + m.lessons.length, 0);
+  document.getElementById('sessions-count').textContent = `(${course.modules.length} module · ${totalLessons} bài)`;
+
+  // Curriculum
+  const currEl = document.getElementById('curriculum-list');
+  let lessonGlobalIdx = 0;
+  course.modules.forEach((mod, mIdx) => {
+    const modEl = document.createElement('div');
+    modEl.className = 'module-block';
+    const freeLessons = mod.lessons.filter(l => l.free).length;
+    modEl.innerHTML = `
+      <div class="module-header" onclick="toggleModule(this)">
+        <span style="font-size:1.2rem">${mIdx === 0 ? '🔓' : '📁'}</span>
+        <h3>${mod.name}</h3>
+        <span class="module-count">${mod.lessons.length} bài${freeLessons > 0 ? ' · ' + freeLessons + ' xem miễn phí' : ''}</span>
+        <span class="module-toggle ${mIdx === 0 ? 'open' : ''}">▼</span>
+      </div>
+      <div class="lesson-list ${mIdx === 0 ? 'open' : ''}">
+        ${mod.lessons.map((lesson, lIdx) => {
+          const gIdx = lessonGlobalIdx++;
+          const previewId = `preview-${mIdx}-${lIdx}`;
+          return `
+          <div class="lesson-item ${lesson.free ? 'free-lesson' : ''}">
+            <div class="lesson-num">${gIdx + 1}</div>
+            <div class="lesson-info">
+              <div class="lesson-title">${lesson.title}</div>
+              <div class="lesson-meta">⏱ ${lesson.duration || '45 phút'}</div>
+            </div>
+            ${lesson.free
+              ? `<span class="lesson-badge free">Xem miễn phí</span>
+                 <button class="btn-preview" onclick="togglePreview('${previewId}', this)">Xem bài</button>`
+              : `<span class="lesson-badge locked">🔒 Cần đăng ký</span>`
+            }
+          </div>
+          ${lesson.free && lesson.content ? `
+          <div class="lesson-preview" id="${previewId}">
+            <h4>📖 ${lesson.title}</h4>
+            <p class="intro">${lesson.content.intro}</p>
+            <div class="steps-list">
+              ${lesson.content.steps.map(s => `
+              <div class="step-item">
+                <div class="step-num">${s.step}</div>
+                <div class="step-content">
+                  <h5>${s.title}</h5>
+                  <p>${s.desc}</p>
+                </div>
+              </div>`).join('')}
+            </div>
+            ${lesson.content.tip ? `<div class="lesson-tip">${lesson.content.tip}</div>` : ''}
+            <div style="margin-top:16px;padding-top:16px;border-top:1px solid #FCD34D;text-align:center">
+              <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:10px">Muốn xem các bài tiếp theo?</p>
+              <a href="login.html" class="btn btn-primary btn-sm">Đăng ký để mở khóa toàn bộ →</a>
+            </div>
+          </div>` : lesson.free ? `
+          <div class="locked-msg" id="${previewId}">
+            <div class="lock-icon">📝</div>
+            <p>Nội dung bài học đang được cập nhật</p>
+          </div>` : `
+          <div class="locked-msg" id="${previewId}" style="display:none">
+            <div class="lock-icon">🔒</div>
+            <p>Bài học này yêu cầu đăng nhập để xem</p>
+            <a href="login.html" class="btn btn-primary btn-sm">Đăng ký miễn phí →</a>
+          </div>`}
+        `}).join('')}
+      </div>
+    `;
+    currEl.appendChild(modEl);
+  });
+
+  // Related courses
+  const allCourses = getAllCourses().filter(c => c.id !== courseId).slice(0, 3);
+  document.getElementById('related-courses').innerHTML = allCourses.map(c => `
+    <div class="course-card">
+      <div class="course-card-header" style="background:${c.color}">
+        <div style="font-size:2.5rem">${c.emoji}</div>
+      </div>
+      <div class="course-card-body">
+        <div class="course-card-tags">
+          <span class="badge badge-primary" style="font-size:.7rem">${c.grade.split('(')[0].trim()}</span>
+          <span class="badge badge-gray" style="font-size:.7rem">${c.sessions} tiết</span>
+        </div>
+        <h3 style="font-size:.95rem">${c.title}</h3>
+        <div class="course-card-meta">
+          <span>⏱ ${c.sessions} tiết</span>
+          <span>🔧 ${c.tool.split('/')[0].trim()}</span>
+        </div>
+        <a href="course-detail.html?id=${c.id}" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+      </div>
+    </div>
+  `).join('');
+})();
+
+function toggleModule(header) {
+  const list = header.nextElementSibling;
+  const toggle = header.querySelector('.module-toggle');
+  list.classList.toggle('open');
+  toggle.classList.toggle('open');
+}
+
+function togglePreview(id, btn) {
+  const el = document.getElementById(id);
+  const isOpen = el.style.display === 'block';
+  el.style.display = isOpen ? 'none' : 'block';
+  btn.textContent = isOpen ? 'Xem bài' : 'Thu gọn';
+}
+</script>
+</body>
+</html>

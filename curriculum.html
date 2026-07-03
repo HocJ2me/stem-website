@@ -585,5 +585,45 @@
   </div>
 </footer>
 <script src="js/main.js"></script>
+<script>
+// Map course title → course-detail.html?id=...
+const COURSE_ID_MAP = {
+  'Phát triển tư duy với Robot Rio - Cơ bản': 'robot-rio-co-ban',
+  'Phát triển tư duy với Robot Rio - Nâng cao': 'robot-rio-co-ban',
+  'Lập trình Scratch JR': 'lap-trinh-scratch-jr',
+  'Lập trình Scratch - Cơ bản': 'scratch-co-ban',
+  'Lập trình Scratch - Nâng cao': 'scratch-nang-cao',
+  'Lắp ráp và lập trình Robotics': 'lap-rap-robotics',
+  'Lập trình thi đấu Robocon': 'lap-rap-robotics',
+  'Dự án STEM sáng tạo': 'du-an-stem-sang-tao',
+  'Dự án Thành phố thông minh': 'nha-thong-minh',
+  'Thiết kế 3D – Tiểu học': 'thiet-ke-3d-tieu-hoc',
+  'Thiết kế 3D - Tiểu học': 'thiet-ke-3d-tieu-hoc',
+  'Thí nghiệm khoa học': 'thi-nghiem-khoa-hoc',
+  'Dự án Lớn: Nhà Thông Minh (Smart Home)': 'nha-thong-minh',
+  'Dự án lớn: Nông nghiệp nhà kính': 'du-an-stem-sang-tao',
+  'Lập trình và thi đấu Robotics với Rover': 'lap-rap-robotics',
+  'Lập trình game cơ bản với GameLab': 'scratch-nang-cao',
+  'Thí nghiệm Khoa học (THCS & THPT)': 'thi-nghiem-khoa-hoc',
+  'Tư duy lập trình máy tính với Yolo:Bit': 'python-co-ban',
+  'Điện tử vui sáng tạo – Cơ bản': 'du-an-stem-sang-tao',
+  'Thiết kế 3D cơ bản': 'thiet-ke-3d-tieu-hoc',
+  'Python': 'python-co-ban',
+};
+document.querySelectorAll('.course-card').forEach(card => {
+  const h3 = card.querySelector('h3');
+  const btn = card.querySelector('a.btn-outline');
+  if (!h3 || !btn) return;
+  const title = h3.textContent.trim();
+  const courseId = COURSE_ID_MAP[title];
+  if (courseId) {
+    btn.href = 'course-detail.html?id=' + courseId;
+    btn.textContent = 'Xem bài học →';
+    btn.style.background = 'var(--primary)';
+    btn.style.color = '#fff';
+    btn.style.borderColor = 'var(--primary)';
+  }
+});
+</script>
 </body>
 </html>
