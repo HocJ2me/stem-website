@@ -1,0 +1,589 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chương trình học – BKSteam</title>
+<meta name="description" content="Hệ sinh thái 20+ khóa học STEM được thiết kế bài bản, liên thông từ Tiểu học đến THPT.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-icon">B</div>BK<span>Steam</span></a>
+    <div class="nav-links">
+      <a href="curriculum.html" class="active">Chương trình học</a>
+      <a href="teacher-training.html">Đào tạo GV</a>
+      <a href="explore.html">Khám phá</a>
+      <a href="pricing.html">Bảng giá</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Liên hệ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-outline btn-sm">Dùng thử miễn phí</a>
+      <a href="login.html" class="btn btn-primary btn-sm">Đăng nhập</a>
+    </div>
+    <button class="nav-hamburger"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile">
+    <a href="curriculum.html">Chương trình học</a>
+    <a href="teacher-training.html">Đào tạo Giáo viên</a>
+    <a href="explore.html">Khám phá</a>
+    <a href="pricing.html">Bảng giá</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Liên hệ</a>
+    <a href="contact.html" class="btn btn-primary">Dùng thử miễn phí</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-header">
+  <div class="container">
+    <span class="badge badge-primary">📚 20+ Khóa học</span>
+    <h1 style="margin-top:16px">Lộ trình STEM Toàn diện –<br><span style="background:linear-gradient(135deg,#4F46E5,#10B981);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Khơi dậy tiềm năng công nghệ số</span></h1>
+    <p>Hệ sinh thái 20+ khóa học được thiết kế bài bản, liên thông từ bậc Tiểu học đến Trung học Phổ thông, bao phủ các lĩnh vực công nghệ cốt lõi.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px">
+      <a href="contact.html" class="btn btn-primary">Đăng ký xem thử →</a>
+      <a href="#curriculum" class="btn btn-outline">Xem khung chương trình</a>
+    </div>
+  </div>
+</section>
+
+<!-- GRADE TABS -->
+<div style="background:#fff;border-bottom:1px solid var(--border);position:sticky;top:68px;z-index:100;padding:16px 0">
+  <div class="container" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+    <span style="font-size:.8rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-right:8px">Cấp học:</span>
+    <button class="grade-tab subject-tab active" data-grade="all">Tất cả</button>
+    <button class="grade-tab subject-tab" data-grade="tieuhoc">🟢 Tiểu học</button>
+    <button class="grade-tab subject-tab" data-grade="thcs">🔵 Trung học cơ sở</button>
+    <button class="grade-tab subject-tab" data-grade="thpt">🟠 Trung học phổ thông</button>
+    <span style="margin:0 8px;color:var(--border)">|</span>
+    <span style="font-size:.8rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-right:8px">Môn:</span>
+    <button class="subject-tab active" data-filter="all">Tất cả</button>
+    <button class="subject-tab" data-filter="lap-trinh">Lập trình</button>
+    <button class="subject-tab" data-filter="robotics">Robotics</button>
+    <button class="subject-tab" data-filter="ai-iot">AI & IoT</button>
+    <button class="subject-tab" data-filter="thiet-ke-3d">Thiết kế 3D</button>
+    <button class="subject-tab" data-filter="khoa-hoc">Thí nghiệm KH</button>
+  </div>
+</div>
+
+<section class="section" id="curriculum">
+<div class="container">
+
+<!-- TIỂU HỌC -->
+<div class="grade-section" data-grade="tieuhoc">
+  <div class="grade-header">
+    <div class="grade-emoji">🟢</div>
+    <div>
+      <h2>Tiểu học</h2>
+      <p>"Gieo mầm Tư duy & Sáng tạo" — Làm quen với tư duy máy tính qua các khối lệnh trực quan và dự án robot đơn giản</p>
+    </div>
+  </div>
+
+  <!-- Lập trình -->
+  <div class="subject-group" id="lap-trinh">
+    <div class="subject-group-header">
+      <span style="font-size:1.2rem">💻</span>
+      <h4>Lập trình & Tư duy máy tính</h4>
+    </div>
+    <div class="grid-4">
+      <div class="course-card" data-subject="lap-trinh">
+        <div class="course-card-header" style="background:linear-gradient(135deg,#EEF2FF,#E0E7FF)">
+          <div style="font-size:2rem">🤖</div>
+        </div>
+        <div class="course-card-body">
+          <div class="course-card-tags">
+            <span class="badge badge-primary">Lập trình</span>
+            <span class="badge badge-easy">Dễ</span>
+          </div>
+          <h3>Phát triển tư duy với Robot Rio - Cơ bản</h3>
+          <div class="course-card-meta">
+            <span>⏱ 12 tiết</span>
+            <span>🔧 Block-code</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="course-card" data-subject="lap-trinh">
+        <div class="course-card-header" style="background:linear-gradient(135deg,#EEF2FF,#E0E7FF)">
+          <div style="font-size:2rem">🤖</div>
+        </div>
+        <div class="course-card-body">
+          <div class="course-card-tags">
+            <span class="badge badge-primary">Lập trình</span>
+            <span class="badge badge-medium">Trung bình</span>
+          </div>
+          <h3>Phát triển tư duy với Robot Rio - Nâng cao</h3>
+          <div class="course-card-meta">
+            <span>⏱ 16 tiết</span>
+            <span>🔧 Block-code</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="course-card" data-subject="lap-trinh">
+        <div class="course-card-header" style="background:linear-gradient(135deg,#FFF7ED,#FEF3C7)">
+          <div style="font-size:2rem">🐱</div>
+        </div>
+        <div class="course-card-body">
+          <div class="course-card-tags">
+            <span class="badge badge-primary">Lập trình</span>
+            <span class="badge badge-easy">Dễ</span>
+          </div>
+          <h3>Lập trình Scratch JR</h3>
+          <div class="course-card-meta">
+            <span>⏱ 10 tiết</span>
+            <span>🔧 Scratch JR</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="course-card" data-subject="lap-trinh">
+        <div class="course-card-header" style="background:linear-gradient(135deg,#FFF7ED,#FEF3C7)">
+          <div style="font-size:2rem">🐱</div>
+        </div>
+        <div class="course-card-body">
+          <div class="course-card-tags">
+            <span class="badge badge-primary">Lập trình</span>
+            <span class="badge badge-easy">Dễ</span>
+          </div>
+          <h3>Lập trình Scratch - Cơ bản</h3>
+          <div class="course-card-meta">
+            <span>⏱ 12 tiết</span>
+            <span>🔧 Scratch</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="course-card" data-subject="lap-trinh">
+        <div class="course-card-header" style="background:linear-gradient(135deg,#FFF7ED,#FEF3C7)">
+          <div style="font-size:2rem">🎮</div>
+        </div>
+        <div class="course-card-body">
+          <div class="course-card-tags">
+            <span class="badge badge-primary">Lập trình</span>
+            <span class="badge badge-medium">Trung bình</span>
+          </div>
+          <h3>Lập trình Scratch - Nâng cao</h3>
+          <div class="course-card-meta">
+            <span>⏱ 16 tiết</span>
+            <span>🔧 Scratch</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Robotics -->
+  <div class="subject-group" id="robotics">
+    <div class="subject-group-header">
+      <span style="font-size:1.2rem">🤖</span>
+      <h4>Robotics</h4>
+    </div>
+    <div class="grid-4">
+      <div class="course-card" data-subject="robotics">
+        <div class="course-card-header" style="background:linear-gradient(135deg,#D1FAE5,#A7F3D0)">
+          <div style="font-size:2rem">⚙️</div>
+        </div>
+        <div class="course-card-body">
+          <div class="course-card-tags">
+            <span class="badge badge-secondary">Robotics</span>
+            <span class="badge badge-easy">Dễ</span>
+          </div>
+          <h3>Lắp ráp và lập trình Robotics</h3>
+          <div class="course-card-meta">
+            <span>⏱ 16 tiết</span>
+            <span>🔧 Robotics Kit</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="course-card" data-subject="robotics">
+        <div class="course-card-header" style="background:linear-gradient(135deg,#D1FAE5,#A7F3D0)">
+          <div style="font-size:2rem">🏆</div>
+        </div>
+        <div class="course-card-body">
+          <div class="course-card-tags">
+            <span class="badge badge-secondary">Robotics</span>
+            <span class="badge badge-medium">Trung bình</span>
+          </div>
+          <h3>Lập trình thi đấu Robocon</h3>
+          <div class="course-card-meta">
+            <span>⏱ 20 tiết</span>
+            <span>🔧 Robotics Kit</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI/IoT -->
+  <div class="subject-group" id="ai-iot">
+    <div class="subject-group-header">
+      <span style="font-size:1.2rem">🌐</span>
+      <h4>AI & IoT</h4>
+    </div>
+    <div class="grid-4">
+      <div class="course-card" data-subject="ai-iot">
+        <div class="course-card-header" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A)">
+          <div style="font-size:2rem">💡</div>
+        </div>
+        <div class="course-card-body">
+          <div class="course-card-tags">
+            <span class="badge badge-accent">AI & IoT</span>
+            <span class="badge badge-easy">Dễ</span>
+          </div>
+          <h3>Dự án STEM sáng tạo</h3>
+          <div class="course-card-meta">
+            <span>⏱ 12 tiết</span>
+            <span>🔧 IoT Kit</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+        </div>
+      </div>
+      <div class="course-card" data-subject="ai-iot">
+        <div class="course-card-header" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A)">
+          <div style="font-size:2rem">🏙️</div>
+        </div>
+        <div class="course-card-body">
+          <div class="course-card-tags">
+            <span class="badge badge-accent">AI & IoT</span>
+            <span class="badge badge-medium">Trung bình</span>
+          </div>
+          <h3>Dự án Thành phố thông minh</h3>
+          <div class="course-card-meta">
+            <span>⏱ 16 tiết</span>
+            <span>🔧 IoT Kit</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3D -->
+  <div class="subject-group" id="thiet-ke-3d">
+    <div class="subject-group-header">
+      <span style="font-size:1.2rem">🎨</span>
+      <h4>Thiết kế 3D</h4>
+    </div>
+    <div class="grid-4">
+      <div class="course-card" data-subject="thiet-ke-3d">
+        <div class="course-card-header" style="background:linear-gradient(135deg,#FCE7F3,#FBCFE8)">
+          <div style="font-size:2rem">🖨️</div>
+        </div>
+        <div class="course-card-body">
+          <div class="course-card-tags">
+            <span class="badge" style="background:#FCE7F3;color:#9D174D">Thiết kế 3D</span>
+            <span class="badge badge-easy">Dễ</span>
+          </div>
+          <h3>Thiết kế 3D – Tiểu học</h3>
+          <div class="course-card-meta">
+            <span>⏱ 10 tiết</span>
+            <span>🔧 Tinkercad</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Khoa học -->
+  <div class="subject-group" id="khoa-hoc">
+    <div class="subject-group-header">
+      <span style="font-size:1.2rem">🔬</span>
+      <h4>Thí nghiệm Khoa học</h4>
+    </div>
+    <div class="grid-4">
+      <div class="course-card" data-subject="khoa-hoc">
+        <div class="course-card-header" style="background:linear-gradient(135deg,#CFFAFE,#A5F3FC)">
+          <div style="font-size:2rem">🧪</div>
+        </div>
+        <div class="course-card-body">
+          <div class="course-card-tags">
+            <span class="badge" style="background:#CFFAFE;color:#164E63">Khoa học</span>
+            <span class="badge badge-easy">Dễ</span>
+          </div>
+          <h3>Thí nghiệm khoa học</h3>
+          <div class="course-card-meta">
+            <span>⏱ 15 tiết</span>
+            <span>🔧 Virtual Labs</span>
+          </div>
+          <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- end tieuhoc -->
+
+<!-- THCS -->
+<div class="grade-section" data-grade="thcs">
+  <div class="grade-header" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
+    <div class="grade-emoji">🔵</div>
+    <div>
+      <h2 style="color:#1E40AF">Trung học cơ sở</h2>
+      <p>"Khám phá & Sáng tạo" — Đi sâu vào lập trình, IoT và robotics thi đấu</p>
+    </div>
+  </div>
+  <div class="grid-4">
+    <div class="course-card" data-subject="lap-trinh">
+      <div class="course-card-header" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
+        <div style="font-size:2rem">🏠</div>
+      </div>
+      <div class="course-card-body">
+        <div class="course-card-tags">
+          <span class="badge badge-primary">AI & IoT</span>
+          <span class="badge badge-medium">Trung bình</span>
+        </div>
+        <h3>Dự án Lớn: Nhà Thông Minh (Smart Home)</h3>
+        <div class="course-card-meta">
+          <span>⏱ 20 tiết</span>
+          <span>🔧 IoT Kit</span>
+        </div>
+        <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+      </div>
+    </div>
+    <div class="course-card" data-subject="ai-iot">
+      <div class="course-card-header" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
+        <div style="font-size:2rem">🌱</div>
+      </div>
+      <div class="course-card-body">
+        <div class="course-card-tags">
+          <span class="badge badge-primary">AI & IoT</span>
+          <span class="badge badge-medium">Trung bình</span>
+        </div>
+        <h3>Dự án lớn: Nông nghiệp nhà kính</h3>
+        <div class="course-card-meta">
+          <span>⏱ 20 tiết</span>
+          <span>🔧 IoT Kit</span>
+        </div>
+        <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+      </div>
+    </div>
+    <div class="course-card" data-subject="robotics">
+      <div class="course-card-header" style="background:linear-gradient(135deg,#D1FAE5,#A7F3D0)">
+        <div style="font-size:2rem">🏎️</div>
+      </div>
+      <div class="course-card-body">
+        <div class="course-card-tags">
+          <span class="badge badge-secondary">Robotics</span>
+          <span class="badge badge-medium">Trung bình</span>
+        </div>
+        <h3>Lập trình và thi đấu Robotics với Rover</h3>
+        <div class="course-card-meta">
+          <span>⏱ 18 tiết</span>
+          <span>🔧 Rover Kit</span>
+        </div>
+        <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+      </div>
+    </div>
+    <div class="course-card" data-subject="lap-trinh">
+      <div class="course-card-header" style="background:linear-gradient(135deg,#EEF2FF,#E0E7FF)">
+        <div style="font-size:2rem">🎮</div>
+      </div>
+      <div class="course-card-body">
+        <div class="course-card-tags">
+          <span class="badge badge-primary">Game Design</span>
+          <span class="badge badge-medium">Trung bình</span>
+        </div>
+        <h3>Lập trình game cơ bản với GameLab</h3>
+        <div class="course-card-meta">
+          <span>⏱ 16 tiết</span>
+          <span>🔧 GameLab</span>
+        </div>
+        <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THPT -->
+<div class="grade-section" data-grade="thpt">
+  <div class="grade-header" style="background:linear-gradient(135deg,#FFF7ED,#FEF3C7)">
+    <div class="grade-emoji">🟠</div>
+    <div>
+      <h2 style="color:#92400E">Trung học phổ thông</h2>
+      <p>"Làm chủ Công nghệ" — Thí nghiệm khoa học nâng cao, AI/ML và lập trình chuyên sâu</p>
+    </div>
+  </div>
+  <div class="grid-4">
+    <div class="course-card" data-subject="khoa-hoc">
+      <div class="course-card-header" style="background:linear-gradient(135deg,#CFFAFE,#A5F3FC)">
+        <div style="font-size:2rem">🔬</div>
+      </div>
+      <div class="course-card-body">
+        <div class="course-card-tags">
+          <span class="badge" style="background:#CFFAFE;color:#164E63">Thí nghiệm KH</span>
+          <span class="badge badge-easy">Cơ bản</span>
+        </div>
+        <h3>Thí nghiệm Khoa học (THCS & THPT)</h3>
+        <p style="font-size:.8rem;margin-top:8px">Toán học, Vật lý, Hóa học và Sinh học qua mô phỏng và thí nghiệm ảo.</p>
+        <div class="course-card-meta">
+          <span>⏱ 20 tiết</span>
+          <span>🔧 Virtual Labs</span>
+        </div>
+        <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+      </div>
+    </div>
+    <div class="course-card" data-subject="lap-trinh">
+      <div class="course-card-header" style="background:linear-gradient(135deg,#EEF2FF,#E0E7FF)">
+        <div style="font-size:2rem">💡</div>
+      </div>
+      <div class="course-card-body">
+        <div class="course-card-tags">
+          <span class="badge badge-primary">Tư duy LP</span>
+          <span class="badge badge-medium">Trung bình</span>
+        </div>
+        <h3>Tư duy lập trình máy tính với Yolo:Bit</h3>
+        <div class="course-card-meta">
+          <span>⏱ 18 tiết</span>
+          <span>🔧 Yolo:Bit</span>
+        </div>
+        <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+      </div>
+    </div>
+    <div class="course-card" data-subject="ai-iot">
+      <div class="course-card-header" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A)">
+        <div style="font-size:2rem">⚡</div>
+      </div>
+      <div class="course-card-body">
+        <div class="course-card-tags">
+          <span class="badge badge-accent">AI/IoT</span>
+          <span class="badge badge-medium">Trung bình</span>
+        </div>
+        <h3>Điện tử vui sáng tạo – Cơ bản</h3>
+        <div class="course-card-meta">
+          <span>⏱ 16 tiết</span>
+          <span>🔧 Electronics Kit</span>
+        </div>
+        <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+      </div>
+    </div>
+    <div class="course-card" data-subject="thiet-ke-3d">
+      <div class="course-card-header" style="background:linear-gradient(135deg,#FCE7F3,#FBCFE8)">
+        <div style="font-size:2rem">🖨️</div>
+      </div>
+      <div class="course-card-body">
+        <div class="course-card-tags">
+          <span class="badge" style="background:#FCE7F3;color:#9D174D">Thiết kế 3D</span>
+          <span class="badge badge-easy">Cơ bản</span>
+        </div>
+        <h3>Thiết kế 3D cơ bản</h3>
+        <div class="course-card-meta">
+          <span>⏱ 12 tiết</span>
+          <span>🔧 Tinkercad</span>
+        </div>
+        <a href="contact.html" class="btn btn-outline btn-sm w-full" style="justify-content:center;margin-top:14px">Xem chi tiết</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end container -->
+</section>
+
+<!-- COMMUNITY PROJECTS -->
+<section class="section" style="background:var(--bg-gray)">
+  <div class="container">
+    <div class="section-header">
+      <div class="label">Cộng đồng giáo viên</div>
+      <h2>Khám phá các dự án nổi bật</h2>
+      <p>Tham khảo hàng ngàn giáo án, bài giảng được thiết kế và chia sẻ bởi các Thầy Cô trên toàn quốc.</p>
+    </div>
+    <div class="grid-4">
+      <div class="card" style="text-align:center">
+        <div style="width:52px;height:52px;background:linear-gradient(135deg,#4F46E5,#7C3AED);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.2rem;margin:0 auto 16px">1</div>
+        <div class="badge badge-gray" style="margin-bottom:12px">Dự án cộng đồng</div>
+        <h3>Mô hình xe tự hành tránh vật cản</h3>
+        <p style="font-size:.85rem;margin-top:8px">Bởi: Trường THCS Lê Quý Đôn</p>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="width:52px;height:52px;background:linear-gradient(135deg,#10B981,#059669);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.2rem;margin:0 auto 16px">2</div>
+        <div class="badge badge-gray" style="margin-bottom:12px">Dự án cộng đồng</div>
+        <h3>Hệ thống tưới cây tự động</h3>
+        <p style="font-size:.85rem;margin-top:8px">Bởi: STEM Academy</p>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="width:52px;height:52px;background:linear-gradient(135deg,#F59E0B,#D97706);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.2rem;margin:0 auto 16px">3</div>
+        <div class="badge badge-gray" style="margin-bottom:12px">Dự án cộng đồng</div>
+        <h3>Lập trình Game Flappy Bird</h3>
+        <p style="font-size:.85rem;margin-top:8px">Bởi: Trường Quốc tế TAS</p>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="width:52px;height:52px;background:linear-gradient(135deg,#EC4899,#DB2777);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.2rem;margin:0 auto 16px">4</div>
+        <div class="badge badge-gray" style="margin-bottom:12px">Dự án cộng đồng</div>
+        <h3>Thiết kế vỏ Robot bằng Tinkercad</h3>
+        <p style="font-size:.85rem;margin-top:8px">Bởi: Trung tâm Robotics Kids</p>
+      </div>
+    </div>
+    <div class="text-center mt-8">
+      <a href="explore.html" class="btn btn-primary">Xem thêm dự án →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container" style="max-width:800px">
+    <div class="section-header">
+      <div class="label">Giải đáp thắc mắc</div>
+      <h2>Các câu hỏi thường gặp</h2>
+    </div>
+    <div>
+      <div class="faq-item">
+        <button class="faq-q">Giáo viên có cần biết lập trình hoặc có chuyên môn IT để giảng dạy không? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Hoàn toàn không! BKSteam được thiết kế để "thân thiện với giáo viên". Mọi khóa học đều đi kèm giáo án chi tiết, slide bài giảng, hướng dẫn từng bước và video mẫu. Bất kỳ giáo viên nào cũng có thể tự tin làm chủ công nghệ và đứng lớp ngay lập tức.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Chương trình học có phù hợp với khung tiêu chuẩn giáo dục không? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Có. Hệ thống khóa học của BKSteam được tinh chỉnh để dễ dàng tích hợp vào môn Tin học, Công nghệ và các hoạt động trải nghiệm STEM ngoại khóa, bám sát định hướng đổi mới giáo dục của Bộ GD&ĐT.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Chúng tôi có cần cài đặt bất kỳ phần mềm nào không? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Không. Học sinh và giáo viên truy cập toàn bộ khóa học, bài giảng và trình mô phỏng trực tiếp qua trình duyệt web trên máy tính hoặc thiết bị di động. Không cần cài đặt thêm bất kỳ phần mềm nào.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Nhà trường cần trang bị những thiết bị gì? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Hệ thống hoạt động tốt trên PC, Laptop, Chromebook hoặc Máy tính bảng có kết nối Internet. Nhờ tích hợp Trình mô phỏng ảo, nhà trường tiết kiệm được rất nhiều chi phí mua sắm thiết bị vật lý. Học sinh hoàn toàn có thể làm việc nhóm 2-3 em dùng chung một thiết bị.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Chúng tôi có bắt buộc phải dạy tất cả các học phần trong chương trình không? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Không. Nhà trường hoàn toàn có quyền linh hoạt chọn thời lượng và số lượng học phần. Một số trường chỉ chọn một học phần làm khóa học trải nghiệm, trong khi các trường khác có thời khóa biểu STEM định kỳ hoàn thành toàn bộ trong năm học.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Bạn cần tư vấn lộ trình phù hợp nhất cho trường của mình?</h2>
+    <p>Đội ngũ chuyên gia STEM của BKSteam sẵn sàng hỗ trợ bạn thiết kế khung chương trình học bám sát tiêu chuẩn Bộ GD&ĐT.</p>
+    <a href="contact.html" class="btn btn-white btn-lg">Nhận tư vấn miễn phí →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="color:#fff"><div class="nav-logo-icon">B</div>BK<span>Steam</span></a>
+        <p>Nền tảng học tập và quản lý STEM toàn diện dành cho học sinh và giáo viên Việt Nam.</p>
+      </div>
+      <div class="footer-col"><h4>VỀ CHÚNG TÔI</h4><ul><li><a href="index.html">Trang chủ</a></li><li><a href="gioi-thieu.html">Giới thiệu</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>GIẢI PHÁP</h4><ul><li><a href="curriculum.html">Chương trình học</a></li><li><a href="teacher-training.html">Đào tạo GV</a></li><li><a href="explore.html">Khám phá</a></li><li><a href="pricing.html">Bảng giá</a></li></ul></div>
+      <div class="footer-col"><h4>PHÁP LÝ</h4><ul><li><a href="privacy.html">Chính sách bảo mật</a></li><li><a href="terms.html">Điều khoản sử dụng</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 BKSteam – Quản lý: Thầy Lê Chí Tuyền. Mọi quyền được bảo lưu.</p>
+      <p>📧 info@bkstar.edu.vn &nbsp;|&nbsp; 📞 (+84) 836 717 666</p>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
